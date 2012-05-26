@@ -1,6 +1,7 @@
 
 <%
 
+    
     String SCOPE = "email,offline_access,user_about_me,user_birthday,read_friendlists";
     String REDIRECT_URI = "http://p4s.co/onmyway/callbak.jsp";
     String CLIENT_ID = "251218434898090";
