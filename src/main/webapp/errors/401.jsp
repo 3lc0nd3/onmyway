@@ -1,11 +1,4 @@
 <%
-
-    String code = request.getParameter("code");
-    System.out.println("code = " + code);
-    if(code != null){
-                
-    }
-
     String errorReason = request.getParameter("error_reason");
     if(errorReason != null){
         String error = request.getParameter("error");
@@ -14,5 +7,12 @@
         System.out.println(errorReason);
         System.out.println(error);
         System.out.println(description);
+%>
+    <%=errorReason%>
+<%
+    } else {
+%>
+    no fue posible
+<%
     }
 %>
