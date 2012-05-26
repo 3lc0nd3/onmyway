@@ -141,6 +141,13 @@
     <bean id="omwayDAO" class="co.com.elramireza.calls.dao.OmwayDAO">
         <dwr:remote javascript="omwayRemoto">
 
+            <dwr:include method="getData"/>
+
+            <dwr:convert class="co.com.elramireza.calls.model.Data" type="bean">
+                <!--<dwr:exclude method="participantesByStartupJoin"/>-->
+            </dwr:convert>
+
+
 
         </dwr:remote>
         <property name="sessionFactory" ref="factory"/>

@@ -1,6 +1,7 @@
 package co.com.elramireza.calls.dao;
 
 import org.springframework.orm.hibernate3.support.HibernateDaoSupport;
+import co.com.elramireza.calls.model.Data;
 
 /**
  * Created by Edward L. Ramirez A.
@@ -11,5 +12,9 @@ import org.springframework.orm.hibernate3.support.HibernateDaoSupport;
  * Time: 2:15:09 AM
  */
 public class OmwayDAO extends HibernateDaoSupport {
-    
+
+    public Data getData(int id){
+        return (Data) getHibernateTemplate().get(Data.class, id);
+    }
+
 }
