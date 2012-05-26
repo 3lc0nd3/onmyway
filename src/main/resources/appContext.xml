@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:dwr="http://www.directwebremoting.org/schema/spring-dwr"
+       xmlns:aop="http://www.springframework.org/schema/aop" xmlns:p="http://www.springframework.org/schema/p"
+       xsi:schemaLocation="
+            http://www.springframework.org/schema/beans
+            http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+
+            http://www.directwebremoting.org/schema/spring-dwr
+            http://www.directwebremoting.org/schema/spring-dwr-2.0.xsd
+
+            http://www.springframework.org/schema/aop
+            http://www.springframework.org/schema/aop/spring-aop-2.0.xsd">
+
+    <!-- ............................ -->
+    <!-- Configuracion del LOGGER  _  -->
+    <!-- ............................ -->
+
+    <bean id="log4jInitialization"
+          class="org.springframework.beans.factory.config.MethodInvokingFactoryBean">
+        <property name="targetClass"
+                  value="org.springframework.util.Log4jConfigurer"/>
+        <property name="targetMethod" value="initLogging"/>
+        <property name="arguments">
+            <list>
+                <value>classpath:log4jClcSms.xml</value>
+            </list>
+        </property>
+    </bean>
+
+    <!-- .......................... -->
+    <!-- Configuracion de hibernate -->
+    <!-- .......................... -->
+
+    <bean id="factory" class="org.springframework.orm.hibernate3.annotation.AnnotationSessionFactoryBean">
+        <property name="hibernateProperties">
+            <props>
+                <prop key="hibernate.dialect">org.hibernate.dialect.MySQL5Dialect</prop>
+                <!--<prop key="hibernate.connection.url">jdbc:mysql://192.168.38.8/fuc_digital</prop>-->
+                <prop key="hibernate.connection.url">jdbc:mysql://localhost/test</prop>
+                <prop key="hibernate.connection.driver_class">com.mysql.jdbc.Driver</prop>
+                <prop key="hibernate.connection.username">sian</prop>
+                <prop key="hibernate.connection.password">sian</prop>
+                <!--<prop key="hibernate.show_sql">false</prop>-->
+                <prop key="hibernate.show_sql">true</prop>
+                <prop key="hibernate.connection.autocommit">true</prop>
+
+                <prop key="hibernate.connection.provider_class">org.hibernate.connection.C3P0ConnectionProvider</prop>
+
+                <prop key="hibernate.c3p0.min_size">10</prop>
+                <prop key="hibernate.c3p0.max_size">50</prop>
+                <prop key="hibernate.c3p0.timeout">1800</prop>
+                <prop key="hibernate.c3p0.max_statements">100</prop>
+
+            </props>
+        </property>
+        <property name="annotatedClasses">
+            <list>
+                <value>co.com.elramireza.calls.model.Participante</value>
+                <value>co.com.elramireza.calls.model.Startup</value>
+                <value>co.com.elramireza.calls.model.Rol</value>
+                <value>co.com.elramireza.calls.model.ParticipanteStartup</value>
+            </list>
+        </property>
+    </bean>
+    <bean id="transactionManager" class="org.springframework.orm.hibernate3.HibernateTransactionManager">
+        <property name="sessionFactory" ref="factory"/>
+    </bean>
+
+    <!-- ............................ -->
+    <!-- Configuracion del DWR   __-  -->
+    <!-- ............................ -->
+
+    <dwr:controller id="dwrController" debug="true"/>
+
+    <dwr:configuration>
+        <dwr:convert class="java.lang.Exception" type="exception"/>
+        <dwr:convert class="java.lang.StackTraceElement" type="bean"/>
+        <dwr:convert class="java.util.Collection" type="collection"/>
+        <dwr:convert class="java.util.Map" type="map"/>
+    </dwr:configuration>
+    
+
+    <bean class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">
+        <property name="mappings">
+            <props>
+                <prop key="/engine.js">dwrController</prop>
+                <prop key="/util.js">dwrController</prop>
+                <prop key="/interface/**">dwrController</prop>
+                <prop key="/call/**">dwrController</prop>
+            </props>
+        </property>
+    </bean>
+
+    <bean id="frontController" class="co.com.elramireza.calls.util.FrontController">
+        <dwr:remote javascript="frontController">
+            <dwr:include method="getInclude"/>
+        </dwr:remote>
+    </bean>
+
+    <!-- ..................................... -->
+    <!-- Configuracion del Contexto WEB   __-  -->
+    <!-- ..................................... -->
+
+    <bean class="org.springframework.web.context.support.ServletContextAttributeExporter">
+        <property name="attributes">
+            <map>
+                <!-- inyecta los siguientes beans en el servlet context para que los servlets puedan acceder a ellos -->
+                <entry key="callsManager" value-ref="callsDAO" />
+            </map>
+        </property>
+    </bean>
+
+    <!-- .................................................. -->
+    <!-- Definicion de los JOBS   __ -_ ...........         -->
+    <!-- .................................................. -->
+
+
+
+    <!-- .................................................. -->
+    <!-- Definicion de los JOB DETAILS  __ -_ .....         -->
+    <!-- .................................................. -->
+
+
+    <!-- .................................................. -->
+    <!-- Definicion de los CRON TRIGGERS __ -_ ....         -->
+    <!-- .................................................. -->
+
+
+    <!-- .................................................. -->
+    <!-- Definicion de los SchedulerFactoryBean  __ -_ ..   -->
+    <!-- .................................................. -->
+
+    <!-- .................................................. -->
+    <!-- Definicion de los Schedulers Monitors ....         -->
+    <!-- .................................................. -->
+
+
+    <!-- .................................................. -->
+    <!-- Definicion de los DAO a utilizar por la aplicacion -->
+    <!-- .................................................. -->
+
+    <bean id="callsDAO" class="co.com.elramireza.calls.dao.CallsDAO">
+        <dwr:remote javascript="callsRemoto">
+
+            <dwr:include method="getStartup"/>
+            <dwr:include method="getParticipantesFromStartup"/>
+            <dwr:include method="getStartupsFromParticipante"/>
+            <dwr:include method="setParticipanteAStartup"/>
+
+            <dwr:convert class="co.com.elramireza.calls.model.Startup" type="bean">
+                <dwr:exclude method="participantesByStartupJoin"/>
+            </dwr:convert>
+            <dwr:convert class="co.com.elramireza.calls.model.ParticipanteStartup" type="bean"/>
+            <dwr:convert class="co.com.elramireza.calls.model.Rol" type="bean"/>
+            <dwr:convert class="co.com.elramireza.calls.model.Participante" type="bean">
+                <dwr:exclude method="password"/>
+                <dwr:exclude method="startupsByIdParticipanteJoin"/>
+            </dwr:convert>
+            
+
+        </dwr:remote>
+        <property name="sessionFactory" ref="factory"/>
+    </bean>
+
+</beans>
+
