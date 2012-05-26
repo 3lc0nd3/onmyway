@@ -23,7 +23,8 @@ public class Facebook {
     private static final String redirect_uri = "http://p4s.co/onmyway/callbak.jsp";
     /// set this to the list of extended permissions you want
 //    private static final String[] perms = new String[] {"publish_stream", "email"};
-    private static final String scope = "email,offline_access,user_about_me,user_birthday,read_friendlists";
+//    private static final String scope = "email,offline_access,user_about_me,user_birthday,read_friendlists";
+    private static final String scope = "email,user_about_me,user_birthday,read_friendlists";
 
     public static String getAPIKey() {
         return api_key;
