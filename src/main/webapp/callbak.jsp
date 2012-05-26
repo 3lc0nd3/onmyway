@@ -1,7 +1,8 @@
 <%@ page import="co.com.elramireza.calls.fb.Facebook" %>
 <%@ page import="java.net.URL" %>
 <%@ page import="com.visural.common.IOUtil" %>
-<%@ page import="org.json.JSONObject" %><%
+<%@ page import="org.json.JSONObject" %>
+<%@ page import="co.com.elramireza.calls.model.UserFB" %><%
 
     String code = request.getParameter("code");
     System.out.println("code = " + code);
@@ -43,6 +44,18 @@
             System.out.println("lastName = " + lastName);
             String email = resp.getString("email");
             System.out.println("email = " + email);
+
+            // SESSION
+
+            UserFB userFB = new UserFB();
+            userFB.setId(id);
+            userFB.setToken(accessToken);
+            userFB.setFirstName(firstName);
+            userFB.setLastName(lastName);
+            userFB.setEmail(email);
+
+            session.setAttribute("userFB", userFB);
+
 %>
 
 id: <%=id%>
