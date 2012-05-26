@@ -38,10 +38,10 @@
             <props>
                 <prop key="hibernate.dialect">org.hibernate.dialect.MySQL5Dialect</prop>
                 <!--<prop key="hibernate.connection.url">jdbc:mysql://192.168.38.8/fuc_digital</prop>-->
-                <prop key="hibernate.connection.url">jdbc:mysql://localhost/test</prop>
+                <prop key="hibernate.connection.url">jdbc:mysql://localhost/onmyway</prop>
                 <prop key="hibernate.connection.driver_class">com.mysql.jdbc.Driver</prop>
-                <prop key="hibernate.connection.username">sian</prop>
-                <prop key="hibernate.connection.password">sian</prop>
+                <prop key="hibernate.connection.username">root</prop>
+                <prop key="hibernate.connection.password">admin</prop>
                 <!--<prop key="hibernate.show_sql">false</prop>-->
                 <prop key="hibernate.show_sql">true</prop>
                 <prop key="hibernate.connection.autocommit">true</prop>
@@ -57,10 +57,7 @@
         </property>
         <property name="annotatedClasses">
             <list>
-                <value>co.com.elramireza.calls.model.Participante</value>
-                <value>co.com.elramireza.calls.model.Startup</value>
-                <value>co.com.elramireza.calls.model.Rol</value>
-                <value>co.com.elramireza.calls.model.ParticipanteStartup</value>
+                <value>co.com.elramireza.calls.model.Data</value>
             </list>
         </property>
     </bean>
@@ -107,7 +104,7 @@
         <property name="attributes">
             <map>
                 <!-- inyecta los siguientes beans en el servlet context para que los servlets puedan acceder a ellos -->
-                <entry key="callsManager" value-ref="callsDAO" />
+                <entry key="omwayManager" value-ref="omwayDAO" />
             </map>
         </property>
     </bean>
@@ -141,24 +138,9 @@
     <!-- Definicion de los DAO a utilizar por la aplicacion -->
     <!-- .................................................. -->
 
-    <bean id="callsDAO" class="co.com.elramireza.calls.dao.CallsDAO">
-        <dwr:remote javascript="callsRemoto">
+    <bean id="omwayDAO" class="co.com.elramireza.calls.dao.OmwayDAO">
+        <dwr:remote javascript="omwayRemoto">
 
-            <dwr:include method="getStartup"/>
-            <dwr:include method="getParticipantesFromStartup"/>
-            <dwr:include method="getStartupsFromParticipante"/>
-            <dwr:include method="setParticipanteAStartup"/>
-
-            <dwr:convert class="co.com.elramireza.calls.model.Startup" type="bean">
-                <dwr:exclude method="participantesByStartupJoin"/>
-            </dwr:convert>
-            <dwr:convert class="co.com.elramireza.calls.model.ParticipanteStartup" type="bean"/>
-            <dwr:convert class="co.com.elramireza.calls.model.Rol" type="bean"/>
-            <dwr:convert class="co.com.elramireza.calls.model.Participante" type="bean">
-                <dwr:exclude method="password"/>
-                <dwr:exclude method="startupsByIdParticipanteJoin"/>
-            </dwr:convert>
-            
 
         </dwr:remote>
         <property name="sessionFactory" ref="factory"/>
