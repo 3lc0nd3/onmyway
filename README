@@ -1,0 +1,60 @@
+Nombre del Proyecto: 
+-------------------
+On my way
+
+
+Valor Agregado:
+---------------
+Aoportar a la comunidad una herramienta para suministrar y compartir
+información categorizada y georeferenciada acerca de los eventos que están ocurriendo en tiempo real.
+
+La App se puede usar tanto en dispositivos móviles como de escritorio
+ya que usa Responsive Design
+
+
+APIS Implementadas
+-------------------
+Facebook
+Google Maps
+Google Analytics
+
+
+Lenguaje
+-----------
+JAVA Standard
+
+
+Framework y Librerias:
+----------------------
+Spring core
+Spring mvc
+Hibernate
+JPA
+REST
+DWR
+JSON
+Fundation (CSS)
+Jquery (js)
+
+Base de Datos
+--------------
+MySQL
+
+
+Link de la App
+--------------
+
+http://p4s.co/onmyway
+
+Totalmente funcional en Desktops, Smartphone y Tablets
+
+
+
+
+
+
+
+
+
+
+
