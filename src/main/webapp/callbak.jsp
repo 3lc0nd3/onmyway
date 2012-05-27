@@ -61,23 +61,9 @@
 
             session.setAttribute("userFB", userFB);
 
-%>
-
-id: <%=id%>
-<br>
-fn: <%=firstName%>
-<br>
-ln: <%=lastName%>
-<br>
-email: <%=email%>
-<br>
-
-<%
-
-
-            /*UserService us = UserService.get();
-            us.authFacebookLogin(accessToken, expires);
-            res.sendRedirect("http://www.onmydoorstep.com.au/");*/
+//            UserService us = UserService.get();
+//            us.authFacebookLogin(accessToken, expires);
+            response.sendRedirect("http://www.onmydoorstep.com.au/");
         } else {
             throw new RuntimeException("Access token and expires not found");
         }

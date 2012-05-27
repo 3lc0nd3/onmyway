@@ -59,6 +59,7 @@
             <list>
                 <value>co.com.elramireza.calls.model.Data</value>
                 <value>co.com.elramireza.calls.model.Categoria</value>
+                <value>co.com.elramireza.calls.model.UserFB</value>
             </list>
         </property>
     </bean>

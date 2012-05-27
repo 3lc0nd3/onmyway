@@ -1,5 +1,7 @@
 package co.com.elramireza.calls.model;
 
+import javax.persistence.*;
+
 /**
  * Created by Edward L. Ramirez A.
  * cel 300 554 3367
@@ -8,6 +10,8 @@ package co.com.elramireza.calls.model;
  * Date: May 26, 2012
  * Time: 10:12:17 AM
  */
+@Entity
+@Table(catalog = "onmyway", name = "user_fb")
 public class UserFB {
     private String id;
     private String token;
@@ -15,6 +19,9 @@ public class UserFB {
     private String lastName;
     private String email;
 
+
+    @Id
+    @Column(name = "id_user")
     public String getId() {
         return id;
     }
@@ -23,6 +30,7 @@ public class UserFB {
         this.id = id;
     }
 
+    @Transient
     public String getToken() {
         return token;
     }
@@ -31,6 +39,8 @@ public class UserFB {
         this.token = token;
     }
 
+    @Basic
+    @Column(name = "firstName")
     public String getFirstName() {
         return firstName;
     }
@@ -39,6 +49,8 @@ public class UserFB {
         this.firstName = firstName;
     }
 
+    @Basic
+    @Column(name = "lastName")
     public String getLastName() {
         return lastName;
     }
@@ -47,6 +59,8 @@ public class UserFB {
         this.lastName = lastName;
     }
 
+    @Basic
+    @Column(name = "email")
     public String getEmail() {
         return email;
     }

@@ -3,6 +3,7 @@ package co.com.elramireza.calls.model;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
+import java.sql.Timestamp;
 
 /**
  * Created by Edward L. Ramirez A.
@@ -53,16 +54,16 @@ public class Data {
         this.lonData = lonData;
     }
 
-    private int idUser;
+    private Timestamp fechaData;
 
     @Basic
-    @Column(name = "id_user")
-    public int getIdUser() {
-        return idUser;
+    @Column (name = "fecha_data")
+    public Timestamp getFechaData() {
+        return fechaData;
     }
 
-    public void setIdUser(int idUser) {
-        this.idUser = idUser;
+    public void setFechaData(Timestamp fechaData) {
+        this.fechaData = fechaData;
     }
 
     private String tituloData;
@@ -99,6 +100,18 @@ public class Data {
 
     public void setCategoriaByIdCategoria(Categoria categoriaByIdCategoria) {
         this.categoriaByIdCategoria = categoriaByIdCategoria;
+    }
+
+    private UserFB userByIdUser;
+
+    @ManyToOne
+    @JoinColumn(name = "id_user", referencedColumnName = "id_user", nullable = false)
+    public UserFB getUserByIdUser() {
+        return userByIdUser;
+    }
+
+    public void setUserByIdUser(UserFB userByIdUser) {
+        this.userByIdUser = userByIdUser;
     }
 
     private int idCategoria;

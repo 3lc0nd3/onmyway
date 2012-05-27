@@ -1,3 +1,5 @@
+var msgInfoWindow = 'comparte lo que viste aqu&iacute;!';
+
 function myTest(e){
     alert("e: "+e);
 }
@@ -51,7 +53,7 @@ function showPosition(p){
         latLng:[p.coords.latitude,p.coords.longitude],
         infowindow:{
             options:{
-                content: 'comparte que viste aqu&iacute;!'
+                content: msgInfoWindow
             }
         },
         options:{ draggable:true },
@@ -145,15 +147,62 @@ function addRoute(r){
     });
 }
 
-function irMobileGMaps(i){
-    var url = 'http://maps.google.com/maps?q='+pos[i];
+
+function irGMaps(lat,lon, title, text, name, id){
+    var msg = '<table border=0><tr><td>'+
+              '<img src="https://graph.facebook.com/'+id+
+              '/picture"/><br>'+
+              name+'</td><td><b>'+title+'</b><br>'+text+'</td></tr></table>';
+
+    removeMark('marker-1');
+
+    $('#map_canvas').gmap3({
+        action : 'addMarker',
+        name:'marker',
+        tag:'marker-1',
+        lat: lat,
+        lng: lon,
+        infowindow:{
+            options:{
+                content: msg
+            }
+        } ,
+        options:{ draggable:true },
+        events:{
+            dragend: function(marker){
+
+                var infowindow = $(this).gmap3({
+                    action : 'get', name : 'infowindow'
+                });
+                if (infowindow) {
+                    infowindow.close();
+                }
+                
+                $('#map_canvas').gmap3({
+                    action:'addinfowindow',
+                    anchor:marker,
+                    options:{
+                        content: msgInfoWindow}
+                });
+
+//                alert("marker.getPosition() = " + marker.getPosition().lat());
+                document.getElementById("latData").value = marker.getPosition().lat();
+                document.getElementById("lonData").value = marker.getPosition().lng();
+            }
+        }
+    });
+
+    
+    $('#map_canvas').gmap3({
+        action:'panTo',
+        args:[new google.maps.LatLng(lat,lon)]
+    });
+}
+
+function irMobileGMaps(lat, lon){
+    var url = 'http://maps.google.com/maps?q='+lat+','+lon;
     alert("Por favor use Google Maps");
     window.open(url,    "#");
 }
 
-function irMobileWaze(i){
-    var url = 'waze://?ll='+pos[i]+'&z=6&navigate=yes';
-        url = 'http://waze.to/?ll='+pos[i]+'&navigate=yes';
-    window.open(url,"#");
-}
 

@@ -2,10 +2,15 @@ package co.com.elramireza.calls.dao;
 
 import org.springframework.orm.hibernate3.support.HibernateDaoSupport;
 import org.directwebremoting.impl.LoginRequiredException;
+import org.directwebremoting.WebContextFactory;
+import org.directwebremoting.WebContext;
 import co.com.elramireza.calls.model.Data;
 import co.com.elramireza.calls.model.Categoria;
+import co.com.elramireza.calls.model.UserFB;
 
+import javax.servlet.http.HttpSession;
 import java.util.List;
+import java.sql.Timestamp;
 
 /**
  * Created by Edward L. Ramirez A.
@@ -33,9 +38,21 @@ public class OmwayDAO extends HibernateDaoSupport {
         return (Categoria) getHibernateTemplate().get(Categoria.class, id);
     }
 
+    /**
+     * Guarda el POST mediante Ajax
+     * @param data el objeto
+     * @return 1 solo si se guardo
+     */
     public int saveData(Data data){
-        data.setIdUser(133);
-        logger.debug("data.getIdCategoria() = " + data.getIdCategoria());
+        WebContext wctx = WebContextFactory.get();
+        HttpSession session = wctx.getSession(true);
+        UserFB userFB = (UserFB) session.getAttribute("userFB");
+        logger.info("userFB = " + userFB);
+        if(userFB == null){
+            throw new SecurityException("Ingrese al Sistema");
+        }
+        data.setUserByIdUser(getUserFB(userFB));
+        data.setFechaData(new Timestamp(System.currentTimeMillis()));
         data.setCategoriaByIdCategoria(getCategoria(data.getIdCategoria()));
 
         if(data.getTituloData().equals("")){
@@ -47,6 +64,18 @@ public class OmwayDAO extends HibernateDaoSupport {
         getHibernateTemplate().save(data);
 
         return 1;
+    }
+
+    public UserFB getUserFB(UserFB userFB){
+        UserFB userFBLocal = (UserFB) getHibernateTemplate().get(UserFB.class, userFB.getId());
+        if(userFBLocal == null){
+            saveUserFB(userFB);
+        }
+        return userFB;
+    }
+
+    public void saveUserFB(UserFB userFB){
+        getHibernateTemplate().save(userFB);
     }
 
 }

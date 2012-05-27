@@ -15,9 +15,9 @@ import java.net.URL;
  */
 public class Facebook {
     // get these from your FB Dev App
-    private static final String api_key = "test";
-    private static final String secret = "f2d4b8b3dd97e69950174b757b0cba4d";
-    private static final String client_id = "251218434898090";
+    private static final String api_key = "ommyway";
+    private static final String secret = "6e3d7f40efacc7b8f5fca57bf4721b1c";
+    private static final String client_id = "110764952396040";
 
     // set this to your servlet URL for the authentication servlet/filter
     private static final String redirect_uri = "http://p4s.co/onmyway/callbak.jsp";
