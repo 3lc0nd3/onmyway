@@ -44,7 +44,7 @@
                 <TD>
                     <img src="https://graph.facebook.com/<%=userFB.getId()%>/picture"/>
                 </TD>
-                <TD>
+                <TD style="color: #3b5998; font-weight: bold;">
                     <%=userFB.getFirstName()%>
                     <br>
                     <%=userFB.getLastName()%>
