@@ -58,6 +58,18 @@
                     </fieldset>
                 </form>
 
+                Desarrollado por
+                <a href="https://twitter.com/#!/elramireza" target="s333">@elramireza</a>
+                para el
+                <a href="https://twitter.com/#!/search/%23DeveloperDay" target="1412122">#DeveloperDay</a>
+                de
+                <a href="https://twitter.com/#!/WayraCo" target="sa333">@WayraCo</a>
+                <br>
+                <br>
+                Cel: 300-554-3367
+                <br>
+                Email: elramireza@gmail.com
+
             </div>
         </div>
 
