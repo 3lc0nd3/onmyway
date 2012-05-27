@@ -23,8 +23,19 @@
         <%
             if(userFB == null){ // NO HAY USUARIO
         %>
-            <a href="ingreso.htm" class="small radius nice blue button">Ingreso con Facebook</a>
+        <br>
+        <br>    
+        <a href="ingreso.htm" class="small radius nice blue button">Ingreso con Facebook</a>
         <%
+                String problema = request.getParameter("problema");
+                if(problema!=null){
+        %>
+        <div class="alert-box error">
+            Problema al ingresar FB...
+            <a href="" class="close">&times;</a>
+        </div>
+        <%
+                }
             } else {
 
             }

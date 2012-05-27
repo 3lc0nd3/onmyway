@@ -63,7 +63,7 @@
 
 //            UserService us = UserService.get();
 //            us.authFacebookLogin(accessToken, expires);
-            response.sendRedirect("http://www.onmydoorstep.com.au/");
+            response.sendRedirect("http://p4s.co/onmyway/inicio.htm");
         } else {
             throw new RuntimeException("Access token and expires not found");
         }
@@ -71,22 +71,15 @@
     }
 
     String errorReason = request.getParameter("error_reason");
-    if(errorReason != null){
+    if(errorReason != null){  // PROBLE DE ACCESO
         String error = request.getParameter("error");
         String description = request.getParameter("error_description");
 //        response.sendError(HttpServletResponse.SC_UNAUTHORIZED, description);
         System.out.println(errorReason);
         System.out.println(error);
         System.out.println(description);
-%>
-<h1>Error al ingreso</h1>
-<br>
-Raz&oacute;n: <%=errorReason%>
-<br>
-Error: <%=error%>
-<br>
-Descripci&oacute;n: <%=description%>
 
-<%
+        response.sendRedirect("http://p4s.co/onmyway/inicio.htm?problema=1");
+
     }
 %>
