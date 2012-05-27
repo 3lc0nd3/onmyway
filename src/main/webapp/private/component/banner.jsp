@@ -4,6 +4,15 @@
 <%
     SimpleDateFormat df = new SimpleDateFormat("MMMMMMM dd, yyyy");
     UserFB userFB = (UserFB) session.getAttribute("userFB");
+
+        /**
+         * ToDo ESTO NO DEBE IR ACA
+         */
+
+    String salir = request.getParameter("salir");
+    if(salir != null){
+        session.removeAttribute("userFB");
+    }
 %>
 
 <header class="row">
@@ -48,7 +57,7 @@
                     <div style="color: #3b5998; font-weight: bold;"><%=userFB.getFirstName()%>
                     <br>
                     <%=userFB.getLastName()%></div>
-                    <a href="logout.htm" class="small radius nice blue button">Maps &rarr;</a>
+                    <a href="inicio.htm?salir=out" class="small radius nice blue button">Salir</a>
                 </TD>
             </tr>
         </TABLE>
