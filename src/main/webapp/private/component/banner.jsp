@@ -36,8 +36,21 @@
         </div>
         <%
                 }
-            } else {
-
+            } else { // SI HAY USUARIO
+        %>
+        <TABLE BORDER="0">
+            <TR>
+                <TD>
+                    <img src="https://graph.facebook.com/<%=userFB.getId()%>/picture"/>
+                </TD>
+                <TD>
+                    <%=userFB.getFirstName()%>
+                    <br>
+                    <%=userFB.getLastName()%>
+                </TD>
+            </tr>
+        </TABLE>
+        <%
             }
         %>
     </div>
