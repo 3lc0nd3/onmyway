@@ -43,7 +43,7 @@
 
     <script type='text/javascript' src='dwr/engine.js'></script>
     <script type='text/javascript' src='dwr/util.js'></script>
-    <script type="text/javascript" src="scripts/script.js"></script>
+    <script type="text/javascript" src="scripts/script.js?t=<%=System.currentTimeMillis()%>"></script>
 
     <%--<script type="text/javascript" src="scripts/validation.js"></script>--%>
     <%--<link href="style/validation.css" rel="stylesheet" type="text/css" />--%>
