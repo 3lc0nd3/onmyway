@@ -2,7 +2,7 @@
 <div class="row">
     <div class="twelve columns">
         <dl class="tabs mobile">
-            <dd><a href="#" class="active">Parkings</a></dd>
+            <dd><a href="#" class="active">Compartir</a></dd>
             <dd><a href="#">News 1</a></dd>
             <dd><a href="#">News 2</a></dd>
             <dd><a href="#">News 3</a></dd>

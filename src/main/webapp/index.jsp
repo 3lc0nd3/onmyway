@@ -1,6 +1,10 @@
 <%@ page import="java.util.Iterator" %>
 <%@ page import="co.com.elramireza.calls.model.UserFB" %>
-
+                              <%
+                                  System.out.println("HOLA INDEX");
+                                  
+response.sendRedirect("inicio.htm");
+%>
 
 <%
     UserFB userFB = (UserFB) session.getAttribute("userFB");

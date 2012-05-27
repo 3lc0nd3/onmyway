@@ -17,10 +17,11 @@
 			<jsp:include page="component/menu.jsp"/>
 <%-- Incluye el servicio pedido --%>
 
-            <%--<jsp:include page="../inicio.jsp"/>--%>
 <%
     String str2=""+request.getAttribute("ctrl");
-    System.out.println("str2 = " + str2);
+    str2 = "../"+str2;
+    str2 += ".jsp";
+    System.out.println("ctrl = " + str2);
 %>
 			<jsp:include page="<%=str2%>"/>
 

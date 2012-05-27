@@ -16,9 +16,6 @@ function initialize_map(){
 
 var myP;
 var pos = new Array();
-pos[0]=[4.699321,-74.043933];
-pos[1]=[4.699497,-74.047205];
-pos[2]=[4.696632,-74.046202];
 
 function showPosition(p){
 
@@ -43,43 +40,6 @@ function showPosition(p){
         }
 
     });
-    //            var map = $('#map_canvas').gmap3('get');
-
-    $('#map_canvas').gmap3({
-        action:'addMarker',
-        latLng:pos[0],
-        infowindow:{
-            options:{
-                content: '<strong>jvParking cr 15a # 119-67</strong>'
-            }
-        }
-    });
-
-    var mark2 = $('#map_canvas').gmap3({
-        action:'addMarker',
-        latLng:pos[1],
-        infowindow:{
-            options:{
-                content: '<strong>Aparcar cll 119 # 17a-78</strong>'
-            }
-        }
-    });
-
-    //            alert("mark2 = " + mark2);
-
-    $('#map_canvas').gmap3({
-        action:'addMarker',
-        latLng:pos[2],
-        infowindow:{
-            options:{
-                content: '<strong>City Parking cll 114a # 15b-85</strong>'
-            }
-        }
-    });
-
-
-
-
 
     $('#map_canvas').gmap3({
         action:'addMarker',

@@ -9,7 +9,7 @@
                         <img src="http://placehold.it/200x120&text=logo1" />
                 </div>
                 <div class="eight columns">
-                        <h1 class="centered">Parking</h1>
+                        <h1 class="centered">On my way</h1>
                         <h5 class="centered"><%=df.format(new Date())%></h5>
                 </div>
                 <div class="two columns">
@@ -21,7 +21,7 @@
             <div class="twelve columns">
                 <img src="http://placehold.it/480x100&text=logoMobile" />
 
-                <h1 class="centered">Parking</h1>
+                <h1 class="centered">On my way</h1>
 
                 <h5 class="centered"><%=df.format(new Date())%></h5>
 			</div>

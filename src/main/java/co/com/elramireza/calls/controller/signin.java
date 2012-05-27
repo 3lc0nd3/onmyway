@@ -49,5 +49,12 @@ public class signin {
         return new ModelAndView("callbak");
     }
 
+    @RequestMapping(value = "/inicio.htm", method = RequestMethod.GET)
+    public ModelAndView inicio(HttpServletRequest request, HttpServletResponse response) throws Exception {
+        request.setAttribute("ctrl", "inicio");
+        logger.info("@RequestMapping:/inicio.htm");
+        return new ModelAndView("private/integrator");
+    }
+
 
 }

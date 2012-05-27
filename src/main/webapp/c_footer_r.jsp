@@ -1,6 +1,6 @@
         <footer class="row">
             <div class="five columns">
-                <p><strong>The Parking Co</strong><br />© 2025 no rights reserved.</p>
+                <p><strong>Un prodcuto de <a href="http://p4s.co" target="12412">p4s.co</a></strong><br /> &copy; 2012 no rights reserved.</p>
             </div>
             <div class="seven columns">
                 <p>
