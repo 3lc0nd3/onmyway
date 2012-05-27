@@ -38,6 +38,7 @@
                 }
             } else { // SI HAY USUARIO
         %>
+        <br>
         <TABLE BORDER="0">
             <TR>
                 <TD>
