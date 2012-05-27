@@ -48,9 +48,7 @@
     <%--<script type="text/javascript" src="scripts/validation.js"></script>--%>
     <%--<link href="style/validation.css" rel="stylesheet" type="text/css" />--%>
 
-    <%--<script type='text/javascript' src='dwr/interface/swRemoto.js'></script>--%>
-    <%--<script type='text/javascript' src='dwr/interface/UploadMonitor.js'> </script>--%>
-    <%--<script type='text/javascript' src='dwr/interface/frontController.js'></script>--%>
+    <script type='text/javascript' src='dwr/interface/omwayRemoto.js'></script>
 
     <%--FILE UPLOAD--%>
     <%--<script type='text/javascript' src='scripts/upload_photo_participante.js'> </script>--%>

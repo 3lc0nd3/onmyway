@@ -1,5 +1,7 @@
 package co.com.elramireza.calls.model;
 
+import org.hibernate.annotations.GenericGenerator;
+
 import javax.persistence.*;
 
 /**
@@ -16,6 +18,8 @@ public class Data {
     private int idData;
 
     @Id
+    @GenericGenerator(name = "generator", strategy = "increment")
+    @GeneratedValue(generator = "generator")
     @Column(name = "id_data")
     public int getIdData() {
         return idData;
@@ -85,10 +89,21 @@ public class Data {
         this.textoData = textoData;
     }
 
+    private Categoria categoriaByIdCategoria;
+
+    @ManyToOne
+    @JoinColumn(name = "id_categoria", referencedColumnName = "id_categoria", nullable = false)
+    public Categoria getCategoriaByIdCategoria() {
+        return categoriaByIdCategoria;
+    }
+
+    public void setCategoriaByIdCategoria(Categoria categoriaByIdCategoria) {
+        this.categoriaByIdCategoria = categoriaByIdCategoria;
+    }
+
     private int idCategoria;
 
-    @Basic
-    @Column(name = "id_categoria")
+    @Transient
     public int getIdCategoria() {
         return idCategoria;
     }
@@ -96,6 +111,4 @@ public class Data {
     public void setIdCategoria(int idCategoria) {
         this.idCategoria = idCategoria;
     }
-
-    
 }

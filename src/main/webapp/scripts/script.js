@@ -19,6 +19,9 @@ var pos = new Array();
 
 function showPosition(p){
 
+    document.getElementById("latData").value = p.coords.latitude;
+    document.getElementById("lonData").value = p.coords.longitude;
+
     myP = p;
 
 
@@ -48,19 +51,26 @@ function showPosition(p){
         latLng:[p.coords.latitude,p.coords.longitude],
         infowindow:{
             options:{
-                content: 'yo!'
+                content: 'comparte que viste aqu&iacute;!'
             }
-        } ,
+        },
+        options:{ draggable:true },
         events:{
             click: function(marker, event, data){
                 //alert(data);
                 for (var key in event) {
                     //                                alert(1);
                     if (event.hasOwnProperty(key)) {
-                        alert("key = " + key);
+//                        alert("key = " + key);
                     }
                 }
 
+            },
+
+            dragend: function(marker){
+//                alert("marker.getPosition() = " + marker.getPosition().lat());
+                document.getElementById("latData").value = marker.getPosition().lat();
+                document.getElementById("lonData").value = marker.getPosition().lng();
             }
         }
     });
@@ -68,6 +78,26 @@ function showPosition(p){
 
 
 
+}
+
+function guardaData(){
+    var data = {
+        latData : null,
+        lonData : null,
+        tituloData: null,
+        textoData: null,
+        idCategoria: null
+    };
+
+    dwr.util.getValues(data);
+
+    omwayRemoto.saveData(data, function(dats){
+        if(dats==1){
+            var currentDate = (new Date()).getTime();
+            alert('Guardado con exito');
+            window.location = "inicio.htm?r="+currentDate;
+        }
+    });
 }
 
 function removeMark(mark){
