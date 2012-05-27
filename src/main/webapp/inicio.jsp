@@ -97,7 +97,7 @@
                             <%=data.getLonData()%>,
                             '<%=data.getTituloData()%>',
                             '<%=data.getTextoData()%>',
-                            '<%=data.getUserByIdUser().getFirstName()+" "+data.getUserByIdUser().getLastName()%>',
+                            '<%=data.getUserByIdUser().getFirstName()+"<br>"+data.getUserByIdUser().getLastName()%>',
                             '<%=data.getUserByIdUser().getId()%>');" class="small radius nice blue button">Maps &rarr;</a>
                         </div>
                         <%--  SOLO PARA MOVILES --%>
