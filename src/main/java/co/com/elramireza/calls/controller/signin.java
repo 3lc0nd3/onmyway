@@ -27,6 +27,7 @@ import java.io.IOException;
 @Controller
 public class signin {
 
+    
     protected final Log logger = LogFactory.getLog(getClass());
 
     @RequestMapping(value = "/ingreso.htm", method = RequestMethod.GET)
