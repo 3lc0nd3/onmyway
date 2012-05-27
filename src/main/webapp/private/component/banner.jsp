@@ -12,6 +12,7 @@
     String salir = request.getParameter("salir");
     if(salir != null){
         session.removeAttribute("userFB");
+        userFB = null;
     }
 %>
 
