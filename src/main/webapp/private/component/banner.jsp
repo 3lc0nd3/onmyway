@@ -44,10 +44,11 @@
                 <TD>
                     <img src="https://graph.facebook.com/<%=userFB.getId()%>/picture"/>
                 </TD>
-                <TD style="color: #3b5998; font-weight: bold;">
-                    <%=userFB.getFirstName()%>
+                <TD >
+                    <div style="color: #3b5998; font-weight: bold;"><%=userFB.getFirstName()%>
                     <br>
-                    <%=userFB.getLastName()%>
+                    <%=userFB.getLastName()%></div>
+                    <a href="logout.htm" class="small radius nice blue button">Maps &rarr;</a>
                 </TD>
             </tr>
         </TABLE>
