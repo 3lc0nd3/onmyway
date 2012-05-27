@@ -1,3 +1,14 @@
+
+--
+-- Database: `onmyway`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `categoria`
+--
+
 CREATE TABLE IF NOT EXISTS `categoria` (
   `id_categoria` int(11) NOT NULL AUTO_INCREMENT,
   `texto_categoria` varchar(300) NOT NULL,
@@ -30,7 +41,7 @@ CREATE TABLE IF NOT EXISTS `data` (
   `id_data` int(11) NOT NULL AUTO_INCREMENT,
   `lat_data` double NOT NULL,
   `lon_data` double NOT NULL,
-  `id_user` int(11) NOT NULL,
+  `id_user` varchar(200) NOT NULL,
   `fecha_data` datetime NOT NULL,
   `titulo_data` varchar(200) NOT NULL,
   `texto_data` varchar(1000) NOT NULL,
@@ -38,7 +49,8 @@ CREATE TABLE IF NOT EXISTS `data` (
   PRIMARY KEY (`id_data`),
   KEY `id_categoria` (`id_categoria`),
   KEY `id_user` (`id_user`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=5 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=9 ;
+
 
 -- --------------------------------------------------------
 
@@ -47,12 +59,13 @@ CREATE TABLE IF NOT EXISTS `data` (
 --
 
 CREATE TABLE IF NOT EXISTS `user_fb` (
-  `id_user` int(11) NOT NULL,
+  `id_user` varchar(200) NOT NULL,
   `firstName` varchar(300) NOT NULL,
   `lastName` varchar(300) NOT NULL,
   `email` varchar(300) NOT NULL,
   PRIMARY KEY (`id_user`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
 
 
 --
@@ -63,5 +76,5 @@ CREATE TABLE IF NOT EXISTS `user_fb` (
 -- Constraints for table `data`
 --
 ALTER TABLE `data`
-  ADD CONSTRAINT `data_ibfk_1` FOREIGN KEY (`id_categoria`) REFERENCES `categoria` (`id_categoria`),
-  ADD CONSTRAINT `data_ibfk_2` FOREIGN KEY (`id_user`) REFERENCES `user_fb` (`id_user`);
+  ADD CONSTRAINT `data_ibfk_2` FOREIGN KEY (`id_user`) REFERENCES `user_fb` (`id_user`),
+  ADD CONSTRAINT `data_ibfk_1` FOREIGN KEY (`id_categoria`) REFERENCES `categoria` (`id_categoria`);
