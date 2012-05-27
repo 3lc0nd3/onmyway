@@ -4,6 +4,11 @@
 <%@ page import="org.json.JSONObject" %>
 <%@ page import="co.com.elramireza.calls.model.UserFB" %><%
 
+    String r = request.getRequestURI();
+    System.out.println("r = " + r);
+    String ctrl = (String) request.getAttribute("ctrl");
+    System.out.println("ctrl = " + ctrl);
+
     String code = request.getParameter("code");
     System.out.println("code = " + code);
     if(code != null){

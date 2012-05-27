@@ -77,7 +77,7 @@
         <dwr:convert class="java.util.Collection" type="collection"/>
         <dwr:convert class="java.util.Map" type="map"/>
     </dwr:configuration>
-    
+
 
     <bean class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">
         <property name="mappings">

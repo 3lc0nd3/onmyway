@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:mvc="http://www.springframework.org/schema/tx"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-2.5.xsd http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.5.xsd">
+
+    <!--
+La siguiente declaración buscará todos los estereotipos(Clases declaradas
+con las anotaciones @Service,@Component,@Controller,@Repository)
+en el paquete co.com.elramireza.calls.controller una vez identificado el
+estereotipo entonces el contenedor instanciará el bean y por lo tanto estará
+listo para ser utilizado por la aplicación
+-->
+    <context:component-scan base-package="co.com.elramireza.calls.controller"/>
+    <context:annotation-config />
+    <mvc:annotation-driven/>
+    <!--
+El siguiente bean configura las propiedades prefijo(prefix) y sufijo(suffix)
+de Internalresourceviewresolver, el cual resuelve nombres de vistas lógicas
+retornadas por los controladores(en el ejm:clases en el paquete controllers)
+-->
+    <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver"
+          p:prefix="/" p:suffix=".jsp"/>
+
+    <bean id="handlerMapping" class="org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping">
+        <property name="order" value="1" />
+    </bean>
+</beans>

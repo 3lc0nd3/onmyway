@@ -5,5 +5,5 @@
             "&access_token=" +
             "USER_ACCESS_TOKEN" +
             "";
-    response.sendRedirect();
+    response.sendRedirect(urlLogout);
 %>
