@@ -632,7 +632,7 @@
                     <li class="span4">
                         <div class="thumbnail">
                             <%--<img src="img/team/team_3.jpg" alt="">--%>
-                            <h4>Jorge</h4>
+                            <h4>Jorge Lozano</h4>
                             <span></span>
                             <p></p>
                         </div>
