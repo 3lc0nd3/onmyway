@@ -80,9 +80,9 @@
 <!--start services header-->
 <section id="services-top">
     <!--start services-desktop header-->
-    <section id="services-top-desktop" class="visible-desktop" data-stellar-background-ratio="0.6" data-stellar-vertical-offset="20">
-        <h1 class="header">Colaborar?</h1>
-        <p class="header">Por supuesto</p>
+    <section id="services-top-desktop"  class="visible-desktop" data-stellar-background-ratio="0.6" data-stellar-vertical-offset="20">
+        <h1 style="text-shadow: 0.1em 0.1em #333" class="header">Colaborar?</h1>
+        <h1 style="text-shadow: 0.1em 0.1em #333" class="header">Por supuesto</h1>
     </section>
     <!--start services-mobile header-->
     <section id="services-top-mobile" class="hidden-desktop">
@@ -134,7 +134,6 @@
     <a href="http://fortawesome.github.com/Font-Awesome/" target="_blank"><strong>HEADS UP!</strong> Click here to check all <strong>249 icons</strong> that we integrated in this template</a>
 </section>
 --%>
-
 <!--start works header-->
 <section id="works-top">
     <!--start works-desktop header-->
@@ -147,7 +146,7 @@
             <br>
             * Medir eficiencia y calidad de los proveedores
             <br>
-            *
+            * Comprometer a la sociedad en el cuidado de los bienes públicos
             <br>
         </p>
     </section>
@@ -155,9 +154,13 @@
     <section id="works-top-mobile" class="hidden-desktop">
         <h1 class="header">Consumimos la info pública</h1>
         <p class="header">
-            *
+            * Informar a las instituciones públicas de los problemas
             <br>
-            *
+            * Ejercer presión social para mejorar el servicio
+            <br>
+            * Medir eficiencia y calidad de los proveedores
+            <br>
+            * Comprometer a la sociedad en el cuidado de los bienes públicos
             <br>
         </p>
     </section>
@@ -204,7 +207,7 @@
                     <button class="carousel-control left m-btn icn-only" href="#carousel_horizontal_slide" data-slide="prev"><i class="icon-chevron-left"></i></button>
                     <button class="carousel-control right m-btn icn-only" href="#carousel_horizontal_slide" data-slide="next"><i class="icon-chevron-right"></i></button>
                 </div>
-                <h1>Fully Responsive</h1>
+                <h1>Disponible para todos los dispositivos</h1>
                 <h4>Works layout 2 + carousel with horizontal slide effect</h4>
             </div>
             <div class="span7 offset1">
@@ -238,7 +241,7 @@
                 </div>
             </div>
             <div class="span5 divide">
-                <h1>Tons of shortcodes</h1>
+                <h1>Reporte para toma de </h1>
                 <h4>Works layout 3 + carousel with fade effect</h4>
                 <p>Aoccdrnig to a rscheearch at Cmabrigde Uinervtisy, it deosn't mttaer in waht oredr the ltteers in a wrod are,
                     the olny iprmoetnt tihng is taht the frist and lsat ltteer be at the rghit pclae.
