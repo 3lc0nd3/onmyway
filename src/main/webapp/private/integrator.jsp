@@ -385,6 +385,9 @@
                             <%=data.getUserByIdUser().getLastName()%>
                     </td>
                     <td>
+                        <%=data.getCategoriaByIdCategoria().getTextoCategoria()%>
+                    </td>
+                    <td>
                             <h5><a ><%=data.getTituloData()%></a></h5>
                             <p>
                                 <%=data.getTextoData()%>
