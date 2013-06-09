@@ -661,7 +661,7 @@
         <div class="row divide">
             <div class="span8">
                 <div class="row">
-                    <form action="js/sendmail.php" method="post" id="contactForm">
+                    <%--<form action="js/sendmail.php" method="post" id="contactForm">
                         <div class="span4">
                             <label>Name:</label>
                             <input type="text" name="name" value="" id="name" class="span4"/>
@@ -682,19 +682,18 @@
                             <div class="message"><div class="alert"></div></div>
                             <input type="submit" value="Send" class="m-btn blue"/>
                         </div>
-                    </form>
+                    </form>--%>
                 </div>
             </div>
             <!--start sidebar-->
             <div class="span4" id="address">
-                <p>795 Folsom St., Suite 600<br>
-                    San Francisco, CA 94107</p>
-                <p>general: office@myway.com<br>
-                    support: support@myway.com<br>
-                    press: press@myway.com</p>
-                <p><abbr title="Phone">P:</abbr> (123) 456-7890<br>
-                    <abbr title="Fax">F:</abbr> (123) 456-7890<br>
-                    <abbr title="Mobile">M:</abbr> (123) 456-7890</p>
+                <p>Bogotá Colombia</p>
+                <p>
+                    <a href="http://p4s.co" target="_blank">Partners for Startups</a>
+                </p>
+                <p>
+                    <abbr title="Email">Email:</abbr> info@p4s.co
+                </p>
             </div>
         </div>
     </div>
