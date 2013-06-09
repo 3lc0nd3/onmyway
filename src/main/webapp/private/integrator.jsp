@@ -1,4 +1,17 @@
-﻿<!DOCTYPE html>
+﻿<%@ page import="java.text.SimpleDateFormat" %>
+<%@ page import="co.com.elramireza.calls.model.Categoria" %>
+<%@ page import="co.com.elramireza.calls.model.Data" %>
+<%@ page import="co.com.elramireza.calls.model.UserFB" %>
+<jsp:useBean id="omwayManager" class="co.com.elramireza.calls.dao.OmwayDAO" scope="application"/>
+<%
+    UserFB userFB = new UserFB();
+    userFB.setEmail("uncorreo@yopmail.com");
+    userFB.setFirstName("Rosa Maria");
+    userFB.setLastName("Perez");
+    userFB.setId("1");
+    session.setAttribute("userFB", userFB);
+%>
+<!DOCTYPE html>
 <html lang="en">
 <head>
 
@@ -19,7 +32,12 @@
     <%--<link href='http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700' rel='stylesheet' type='text/css'>--%>
     <link rel="image_src" href="thumbnail.png">
     <link rel="icon" type="image/ico" href="favicon.ico">
+
 </head>
+
+<%
+    SimpleDateFormat df = new SimpleDateFormat("HH:mm aa MMMMMMM dd, yyyy");
+%>
 <body data-spy="scroll" data-target=".navbar" data-offset='64' onLoad="$.stellar();">
 <div id="preloader">
     <div id="status">&nbsp;</div>
@@ -241,7 +259,7 @@
                 </div>
             </div>
             <div class="span5 divide">
-                <h1>Reporte para toma de </h1>
+                <h1>Reporte para toma de decisiones</h1>
                 <h4>Works layout 3 + carousel with fade effect</h4>
                 <p>Aoccdrnig to a rscheearch at Cmabrigde Uinervtisy, it deosn't mttaer in waht oredr the ltteers in a wrod are,
                     the olny iprmoetnt tihng is taht the frist and lsat ltteer be at the rghit pclae.
@@ -255,7 +273,7 @@
         <div class="divider"></div>
         <div class="row divide">
             <div class="span5 divide">
-                <h1>Supereasy to customize</h1>
+                <h1>Has seguimiento a tus reportes</h1>
                 <h4>Works layout 3 + carousel with fade effect</h4>
                 <p>Aoccdrnig to a rscheearch at Cmabrigde Uinervtisy, it deosn't mttaer in waht oredr the ltteers in a wrod are,
                     the olny iprmoetnt tihng is taht the frist and lsat ltteer be at the rghit pclae.
@@ -282,20 +300,20 @@
         </div>
     </div>
 </section>
-<section id="hint2">
-    <a href="http://twitter.github.com/bootstrap/base-css.html" target="_blank"><strong>Heads up!</strong> Click here to check all built-in shortcodes</a>
-</section>
+<%--<section id="hint2">--%>
+    <%--<a href="http://twitter.github.com/bootstrap/base-css.html" target="_blank"><strong>Heads up!</strong> Click here to check all built-in shortcodes</a>--%>
+<%--</section>--%>
 <!--start gallery header-->
 <section id="gallery-top">
     <!--start gallery-desktop header-->
     <section id="gallery-top-desktop" class="visible-desktop" data-stellar-background-ratio="0.6" data-stellar-vertical-offset="20">
-        <h1 class="header">Gallery</h1>
-        <p class="header">Alternative Works Version</p>
+        <h1 class="header">Reportar Ya!</h1>
+        <p class="header">de forma fácil y segura</p>
     </section>
     <!--start gallery-mobile header-->
     <section id="gallery-top-mobile" class="hidden-desktop">
-        <h1 class="header">Gallery</h1>
-        <p class="header">Alternative Works Version</p>
+        <h1 class="header">Reportar Ya!</h1>
+        <p class="header">de forma fácil y segura</p>
     </section>
 </section>
 <!--start gallery-->
@@ -303,14 +321,113 @@
 <section id="gallery">
     <div class="container">
         <div class="row divide">
-            <div class="span8 offset2">
+            <div class="span8">
+                <div id="map_canvas" style="width:100%; height:400px"></div>
+                <div id="route"></div>
+                <div style="display:none;" id="current">iniciando...</div>
+
+                <h3><a href="#">Reporte Ciudadano</a></h3>
+
+            </div>
+            <div class="span4">
+                <form name="registrar">
+                    <fieldset>
+                        <h5>Registrar:</h5>
+                        <p>Eres libre para compartir tu experiencia.</p>
+
+                        <label for="idCategoria">Categor&iacute;a</label>
+                        <select id="idCategoria">
+                            <%
+                                for (Categoria categoria : omwayManager.getCategorias()) {
+                            %>
+                            <option value="<%=categoria.getIdCategoria()%>"><%=categoria.getTextoCategoria()%></option>
+                            <%
+                                }
+                            %>
+                        </select>
+
+                        <label for="tituloData">T&iacute;tulo</label>
+                        <input class="input-text" id="tituloData" type="text">
+
+                        <label for="latData" class="hide-on-phones">Lat</label>
+                        <input class="input-text hide-on-phones" id="latData" type="text" readonly>
+
+                        <label for="lonData" class="hide-on-phones">Lon</label>
+                        <input class="input-text hide-on-phones" id="lonData" type="text" readonly>
+
+                        <label for="textoData">Detalle</label>
+                        <textarea id="textoData"></textarea>
+                        <br>
+                        <br>
+                        <a onclick="guardaData();" class="m-btn blue">Enviar</a>
+                        <br>
+                        <br>
+
+                    </fieldset>
+                </form>
+            </div>
+        </div>
+
+        <div class="row divide">
+            <div class="span12">
+                <table border="1">
+
+                <%
+                    //    <POSTS>
+                    for (Data data: omwayManager.getDatas()){
+                %>
+                <%-- <ARTICULO, POST, NOTICIA O PUBLICIDAD>--%>
+                <tr>
+                    <td>
+                            <%--<img src="https://graph.facebook.com/<%=data.getUserByIdUser().getId()%>/picture"/>--%>
+                            <%--<br>--%>
+                            <%=data.getUserByIdUser().getFirstName()%>
+                            <%=data.getUserByIdUser().getLastName()%>
+                    </td>
+                    <td>
+                            <h5><a ><%=data.getTituloData()%></a></h5>
+                            <p>
+                                <%=data.getTextoData()%>
+                                <br>
+                                <span class="round label"><%=df.format(data.getFechaData())%></span>
+                                <%--<br /><a href="#">Leer m&aacute;s &rarr;</a>--%>
+                            </p>
+                    </td>
+                        <%--  SOLO PARA DESKTOPS --%>
+                    <td>
+                        <a href="javascript:irGMaps(
+                            <%=data.getLatData()%>,
+                            <%=data.getLonData()%>,
+                            '<%=data.getTituloData()%>',
+                            '<%=data.getTextoData()%>',
+                            '<%=data.getUserByIdUser().getFirstName()+"<br>"+data.getUserByIdUser().getLastName()%>',
+                            '<%=data.getUserByIdUser().getId()%>');" class="m-btn blue">Maps &rarr;</a>
+                    </td>
+                        <%--  SOLO PARA MOVILES --%>
+                        <%--<div class="two columns hide-on-desktops">
+                            <a href="javascript:irMobileGMaps(<%=data.getLatData()%>,<%=data.getLonData()%>);" class="small radius nice blue button">Ir Usando Google Maps &rarr;</a>
+                        </div>--%>
+
+                </tr>
+                <%-- </ARTICULO, POST, NOTICIA O PUBLICIDAD> --%>
+                <%-- PANEL --%>
+                <%
+                    } // </POSTS>
+                %>
+
+                </table>
+            </div>
+        </div>
+
+        <div class="row divide">
+            <%--<div class="span8 offset2">
                 <h1>Mockups included</h1>
                 <p class="center">Aoccdrnig to a rscheearch at Cmabrigde Uinervtisy, it deosn't mttaer in waht oredr the ltteers in a wrod are,
                     the olny iprmoetnt tihng is taht the frist and lsat ltteer be at the rghit pclae.
                     The rset can be a toatl mses and you can sitll raed it wouthit porbelm.
                     Tihs is bcuseae the huamn mnid deos not raed ervey lteter by istlef, but the wrod as a wlohe. Awesomeness, true story!</p>
-            </div>
-            <div class="span12">
+            </div>--%>
+            <%--<div class="span12">
                 <ul class="thumbnails">
                     <li class="span3">
                         <div class="thumbnail" data-thumb="tooltip" title="Click me" data-placement="top">
@@ -397,7 +514,7 @@
                         </div>
                     </li>
                 </ul>
-            </div>
+            </div>--%>
         </div>
     </div>
 </section>
@@ -639,6 +756,35 @@
 <script src="js/jquery.form.js"></script>
 <!--gallery lightbox-->
 <script src="js/bootstrap-lightbox.min.js"></script>
+
+
+
+<script type='text/javascript' src='dwr/engine.js'></script>
+<script type='text/javascript' src='dwr/util.js'></script>
+<script type="text/javascript" src="scripts/script.js?t=<%=System.currentTimeMillis()%>"></script>
+<script type='text/javascript' src='dwr/interface/omwayRemoto.js'></script>
+
+<!--DEFINE GLOBAL VARS-->
+<script type="text/javascript">
+    var user_friends = new Array();
+    var user_app_friends = new Array();
+</script>
+
+<%--    </POPULAR>--%>
+
+<%--MAPS--%>
+
+<script src="scripts/gps/geo.js" type="text/javascript" charset="utf-8"></script>
+
+<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
+<script src="scripts/gmap3.js" type="text/javascript" charset="utf-8"></script>
+
+
+<script type="text/javascript">
+    initialize_map();
+</script>
+
+
 <!--google analytics-->
 <%--<script type="text/javascript">
     var _gaq = _gaq || [];

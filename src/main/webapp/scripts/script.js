@@ -1,4 +1,4 @@
-var msgInfoWindow = 'comparte lo que viste aqu&iacute;!';
+var msgInfoWindow = 'Donde está el da&ntilde;o a reportar? &nbsp;';
 
 function myTest(e){
     alert("e: "+e);
