@@ -615,7 +615,7 @@
                 <ul class="thumbnails">
                     <li class="span4">
                         <div class="thumbnail">
-                            <%--<img src="img/team/team_1.jpg" alt="">--%>
+                            <img src="http://p4s.co/photo/p87-2013-05-30-06-48-15.jpeg" alt="">
                             <a href="http://p4s.co/P4Sp-edward_l._ramirez_av-p-87.html" target="_blank"><h4>Edward Ramirez</h4></a>
                             <span></span>
                             <p></p>
@@ -623,7 +623,7 @@
                     </li>
                     <li class="span4">
                         <div class="thumbnail">
-                            <%--<img src="img/team/team_2.jpg" alt="">--%>
+                            <img src="http://profile.ak.fbcdn.net/hprofile-ak-prn1/c85.0.435.435/s320x320/226605_5176971073_6641_n.jpg" alt="">
                             <h4>Jhon Jairo Martinez</h4>
                             <span></span>
                             <p></p>
@@ -631,7 +631,7 @@
                     </li>
                     <li class="span4">
                         <div class="thumbnail">
-                            <%--<img src="img/team/team_3.jpg" alt="">--%>
+                            <img src="https://fbcdn-profile-a.akamaihd.net/hprofile-ak-frc3/c0.50.199.199/2628_1116026494577_1253152_n.jpg" alt="">
                             <h4>Jorge Lozano</h4>
                             <span></span>
                             <p></p>
