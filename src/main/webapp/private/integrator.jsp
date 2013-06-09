@@ -615,26 +615,26 @@
                 <ul class="thumbnails">
                     <li class="span4">
                         <div class="thumbnail">
-                            <img src="img/team/team_1.jpg" alt="">
-                            <h4>Aleksandar Macanovic</h4>
+                            <%--<img src="img/team/team_1.jpg" alt="">--%>
+                            <h4>Edward Ramirez</h4>
                             <span>Founder</span>
-                            <p>Girlfriend, Amiga500, Star Wars, Coffee.</p>
+                            <p></p>
                         </div>
                     </li>
                     <li class="span4">
                         <div class="thumbnail">
-                            <img src="img/team/team_2.jpg" alt="">
-                            <h4>Kristina Nikolic</h4>
-                            <span>Marketing Manager</span>
-                            <p>Cognac, Job, PopCorn, LEGO, Theatre.</p>
+                            <%--<img src="img/team/team_2.jpg" alt="">--%>
+                            <h4>Jhon Jairo Martinez</h4>
+                            <span></span>
+                            <p></p>
                         </div>
                     </li>
                     <li class="span4">
                         <div class="thumbnail">
-                            <img src="img/team/team_3.jpg" alt="">
-                            <h4>Barnetta Stinson</h4>
-                            <span>Developer</span>
-                            <p>Legendary, High Five, Challenge Accepted.</p>
+                            <%--<img src="img/team/team_3.jpg" alt="">--%>
+                            <h4>Jorge</h4>
+                            <span></span>
+                            <p></p>
                         </div>
                     </li>
                 </ul>
