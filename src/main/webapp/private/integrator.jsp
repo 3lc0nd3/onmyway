@@ -616,8 +616,8 @@
                     <li class="span4">
                         <div class="thumbnail">
                             <%--<img src="img/team/team_1.jpg" alt="">--%>
-                            <h4>Edward Ramirez</h4>
-                            <span>Founder</span>
+                            <a href="http://p4s.co/P4Sp-edward_l._ramirez_av-p-87.html" target="_blank"><h4>Edward Ramirez</h4></a>
+                            <span></span>
                             <p></p>
                         </div>
                     </li>
