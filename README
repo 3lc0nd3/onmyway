@@ -1,7 +1,6 @@
 Nombre del Proyecto: 
 -------------------
-On my way
-
+Iluminanos
 
 GITHUB
 ----------
@@ -11,7 +10,7 @@ https://github.com/3lc0nd3/onmyway
 Link de la App
 --------------
 
-http://p4s.co/onmyway
+http://p4s.co/iluminanos
 
 Totalmente funcional en Desktops, Smartphone y Tablets
 
@@ -19,19 +18,18 @@ Totalmente funcional en Desktops, Smartphone y Tablets
 
 Valor Agregado:
 ---------------
-Aoportar a la comunidad una herramienta para suministrar y compartir
-información categorizada y georeferenciada acerca de los eventos que están ocurriendo en tiempo real.
-
-La App se puede usar tanto en dispositivos móviles como de escritorio
-ya que usa Responsive Design
-
+Iluminanos es el lugar para que los ciudadanos puedan 
+denunciar o dar visibilidad a las inconsistencias 
+o fallas del alumbrado público. 
 
 APIS Implementadas
 -------------------
 Facebook
 Google Maps
 Google Analytics
-
+Spring
+Java
+Google Apps Engine
 
 Lenguaje
 -----------
